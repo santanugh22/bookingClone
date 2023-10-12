@@ -11,6 +11,7 @@ import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+const COLOR = "#003580";
 const Stack=createStackNavigator()
 const Tab=createBottomTabNavigator()
 const StackNavigator = () => {
@@ -35,9 +36,9 @@ function TabGroup(){
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <Ionicons name="home" size={24} color="black" />
+                <Ionicons name="home" size={24} color={COLOR} />
               ) : (
-                <Ionicons name="home-outline" size={24} color="black" />
+                <Ionicons name="home-outline" size={24} color={COLOR} />
               ),
             tabBarLabel: "Home",
             tabBarLabelPosition: "below-icon",
@@ -50,9 +51,9 @@ function TabGroup(){
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <AntDesign name="heart" size={24} color="black" />
+                <AntDesign name="heart" size={24} color={COLOR} />
               ) : (
-                <AntDesign name="hearto" size={24} color="black" />
+                <AntDesign name="hearto" size={24} color={COLOR} />
               ),
             tabBarLabel: "Saved",
             tabBarLabelPosition: "below-icon",
@@ -65,9 +66,9 @@ function TabGroup(){
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <FontAwesome name="bell" size={24} color="blue" />
+                <FontAwesome name="bell" size={24} color={COLOR} />
               ) : (
-                <FontAwesome name="bell-o" size={24} color="blue" />
+                <FontAwesome name="bell-o" size={24} color={COLOR} />
               ),
             tabBarLabel: "Bookings",
             tabBarLabelPosition: "below-icon",
@@ -80,9 +81,9 @@ function TabGroup(){
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <FontAwesome5 name="user-alt" size={24} color="black" />
+                <FontAwesome5 name="user-alt" size={24} color={COLOR} />
               ) : (
-                <FontAwesome5 name="user" size={24} color="black" />
+                <FontAwesome5 name="user" size={24} color={COLOR} />
               ),
             tabBarLabel: "Profile",
             tabBarLabelPosition: "below-icon",
