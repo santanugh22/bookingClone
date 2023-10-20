@@ -20,3 +20,11 @@
 
 
 #### 
+This is the best thing about the app is that it is a TDD (Test Driven Development) app. All the tests are written in Jest and Enzyme. The tests are written for all the components and the redux actions and reducers. The tests are written in the following folders:
+- [x] ```__tests__``` folder in the root directory
+- [x] ```__tests__``` folder in the ```src``` directory
+- [x] ```__tests__``` folder in the ```src/components``` directory
+- [x] ```__tests__``` folder in the ```src/actions``` directory
+- [x] ```__tests__``` folder in the ```src/reducers``` directory
+
+this is the best thing abot the app ig
