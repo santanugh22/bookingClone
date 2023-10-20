@@ -16,4 +16,7 @@
 ``` The app is available for download in .apk format for android devices in the following link : https://d```
 
 ### Screenshots of the app
-![Screenshot_20211003-225711](https://user-images.githubusercontent.com/64765400/135772802-9b5b8b9b-2b0b-4b0f-8b9f-0b0b0b2b2b0b.png)
+
+
+
+#### 
