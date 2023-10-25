@@ -7,7 +7,8 @@ import {
   SafeAreaView,
   TextInput,
   Pressable,
-  Modal
+  Modal,
+  TouchableOpacity
 
 } from "react-native";
 
@@ -16,6 +17,9 @@ import { EvilIcons } from "@expo/vector-icons";
 import CalendarPicker from "react-native-calendar-picker";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons';
+import { Button } from "react-native";
+import Offers from "../components/Offers";
 const COLOR = "#003580";
 
 const Home = ({ navigation }) => {
@@ -25,6 +29,7 @@ const Home = ({ navigation }) => {
   // this are all the inputs that are going to be submitted
   const [destination, setDestination] = useState(null);
   const [journeryDate, setJourneyDate] = useState(dateOfNow);
+  const [visibility,setVisibility]=useState(false)
 
 
 
@@ -152,7 +157,8 @@ const Home = ({ navigation }) => {
 
       {/* THIS IS THE NUMBER OF PERSON THAT IS TRAVELLING SELECTION PAGE */}
 
-      <View
+      <Pressable onPress={()=>setVisibility(!visibility)}>
+         <View
         style={{
 
           justifyContent: "center",
@@ -184,6 +190,9 @@ const Home = ({ navigation }) => {
           </View>
         </View>
       </View>
+      </Pressable>
+
+     
 
       {/* THIS IS THE END OF THE SELECITON OF THE NUMBER OF PERSON TRAVELLING */}
 
@@ -208,6 +217,38 @@ const Home = ({ navigation }) => {
 
 
         {/* This is the end of the inner part of the web */}
+   
+        
+
+
+     
+          <ModalView visibility={visibility} setVisibility={setVisibility} numberOfPax={numberOfPax} setNumberOfPax={setNumberOfPax}/>
+
+
+
+
+
+          {/* This is the begining of the Offers Section of the page */}
+          <Offers/>
+
+          {/* End of the Offers Section */}
+
+
+          {/* This is the Booking.Com Logo */}
+
+          <View style={{height:200,justifyContent:'center',alignItems:'center'}}>
+            <View style={{flexDirection:'row',}}>
+               <Text style={{fontSize:40,fontWeight:600,color:COLOR}}>Booking</Text>
+               <Text style={{fontSize:40,fontWeight:600,color:'blue'}}>.com</Text>
+            </View>
+           
+
+          </View>
+
+
+       
+
+
 
 
   
@@ -221,5 +262,192 @@ const Home = ({ navigation }) => {
   );
 };
 export default Home;
+
+
+function ModalView({visibility,setVisibility,numberOfPax,setNumberOfPax}){
+ 
+ 
+
+  return  <Modal animationType="slide" visible={visibility} style={{height:'100%',width:'100%'}} transparent={true}>
+    <View style={{top:'50%',backgroundColor:'white',height:'50%',width:'100%',borderRadius:10,
+    shadowColor:'black',
+    shadowOffset:{
+      height:12,
+      width:10
+    },
+    shadowRadius:7,
+    shadowOpacity:0.8,
+    elevation:7,
+    borderColor:'black',
+    borderTopWidth:0.3,
+    overflow:'hidden'
+
+  
+  }}>
+    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',backgroundColor:'#E8E8E8',height:40}}>
+
+
+      <View style={{justifyContent:'center',alignItems:'center'}}>
+        <Text style={{textAlign:'center',fontSize:20,fontWeight:300,color:'black'}}>Select number of Guest</Text>
+      </View>
+       
+    
+     
+
+
+    </View>
+
+      <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >
+   
+
+        <View>
+          <Text>Number of Children</Text>
+        </View>
+
+
+
+        <View style={{flexDirection:'row',height:60,width:200,justifyContent:'space-between',alignItems:'center'}}>
+
+            <Pressable onPress={()=>{setNumberOfPax({...numberOfPax,['children']:numberOfPax.children+1})}}>
+          <View style={{height:50,width:50,justifyContent:'center',alignItems:'center',backgroundColor:'#fff',borderColor:'black',borderWidth:0.4,borderRadius:20}}>
+          
+                   <Text style={{fontSize:30}}>+</Text>
+          
+            </View>
+              </Pressable>
+            
+       
+
+
+
+          <View><Text>{numberOfPax.children}</Text></View>
+
+             <Pressable onPress={()=>{
+              if(numberOfPax.children==0){
+                return
+              }
+              setNumberOfPax({...numberOfPax,['children']:numberOfPax.children-1})
+            }}>
+          <View style={{height:50,width:50,justifyContent:'center',alignItems:'center',backgroundColor:'#fff',borderColor:'black',borderWidth:0.4,borderRadius:20}}>
+
+         
+               <Text style={{fontSize:30}}>-</Text>
+          
+           </View>
+             </Pressable>
+
+        </View>
+
+
+
+
+      </View>
+       <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >
+   
+
+        <View>
+          <Text>Number of Adults</Text>
+        </View>
+
+
+
+        <View style={{flexDirection:'row',height:60,width:200,justifyContent:'space-between',alignItems:'center'}}>
+
+            <Pressable onPress={()=>{setNumberOfPax({...numberOfPax,['adult']:numberOfPax.adult+1})}}>
+          <View style={{height:50,width:50,justifyContent:'center',alignItems:'center',backgroundColor:'#fff',borderColor:'black',borderWidth:0.4,borderRadius:20}}>
+          
+                   <Text style={{fontSize:30}}>+</Text>
+          
+            </View>
+              </Pressable>
+            
+       
+
+
+
+          <View><Text>{numberOfPax.adult}</Text></View>
+
+             <Pressable onPress={()=>{
+              if(numberOfPax.adult==0){
+                return
+              }
+              setNumberOfPax({...numberOfPax,['adult']:numberOfPax.adult-1})
+            }}>
+          <View style={{height:50,width:50,justifyContent:'center',alignItems:'center',backgroundColor:'#fff',borderColor:'black',borderWidth:0.4,borderRadius:20}}>
+
+         
+               <Text style={{fontSize:30}}>-</Text>
+          
+           </View>
+             </Pressable>
+
+        </View>
+
+
+
+
+      </View>
+       <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >
+   
+
+        <View>
+          <Text>Number of Rooms</Text>
+        </View>
+
+
+
+        <View style={{flexDirection:'row',height:60,width:200,justifyContent:'space-between',alignItems:'center'}}>
+
+            <Pressable onPress={()=>{setNumberOfPax({...numberOfPax,['rooms']:numberOfPax.rooms+1})}}>
+          <View style={{height:50,width:50,justifyContent:'center',alignItems:'center',backgroundColor:'#fff',borderColor:'black',borderWidth:0.4,borderRadius:20}}>
+          
+                   <Text style={{fontSize:30}}>+</Text>
+          
+            </View>
+              </Pressable>
+            
+       
+
+
+
+          <View><Text>{numberOfPax.rooms}</Text></View>
+
+             <Pressable onPress={()=>{
+              if(numberOfPax.children==0){
+                return
+              }
+              setNumberOfPax({...numberOfPax,['children']:numberOfPax.children-1})
+            }}>
+          <View style={{height:50,width:50,justifyContent:'center',alignItems:'center',backgroundColor:'#fff',borderColor:'black',borderWidth:0.4,borderRadius:20}}>
+
+         
+               <Text style={{fontSize:30}}>-</Text>
+          
+           </View>
+             </Pressable>
+
+        </View>
+
+
+
+
+      </View>
+
+
+
+    <TouchableOpacity style={{backgroundColor:COLOR,height:60,width:'100%',top:100,justifyContent:'center',alignItems:'center'}} onPress={()=>setVisibility(false)}>
+      <Text style={{color:'white',fontSize:21}}>Apply</Text>
+    </TouchableOpacity>
+  
+    
+      
+
+    </View>
+
+  </Modal>
+
+
+}
+
 
 const styles = StyleSheet.create({});
