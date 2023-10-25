@@ -23,6 +23,8 @@ import Offers from "../components/Offers";
 const COLOR = "#003580";
 
 const Home = ({ navigation }) => {
+
+
   const dateOfNow=new Date().toDateString()
   const [datePicker, setDatePicker] = useState(false);
 
@@ -68,7 +70,7 @@ const Home = ({ navigation }) => {
       {/* let make the different inputs that has to be taken from the user */}
 
       {/* This is the Search Your Destiantion Input Bar */}
-
+      
       <View
         style={{
           marginTop: 12,
@@ -76,6 +78,7 @@ const Home = ({ navigation }) => {
           alignItems: "center",
         }}
       >
+   
         <View
           style={{
             borderColor: "#FFC72C",
@@ -88,13 +91,17 @@ const Home = ({ navigation }) => {
           }}
         >
           <Feather name="search" size={24} color="black" />
+
           <TextInput
             style={{ height: 50, width: "90%", fontSize: 20 }}
             placeholderTextColor={"grey"}
             placeholder="Enter your destination"
           />
         </View>
+        
       </View>
+
+     
 
       {/* THis is the end of the searcing for the destination block of the code */}
 

@@ -11,6 +11,7 @@ import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import SearchScreen from '../screens/SearchScreen'
 const COLOR = "#003580";
 const Stack=createStackNavigator()
 const Tab=createBottomTabNavigator()
@@ -18,6 +19,7 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator>
         <Stack.Screen name='Main' component={TabGroup} options={{headerShown:false}}/>
+        <Stack.Screen name='Search' component={SearchScreen} options={{headerShown:false}}/>
     </Stack.Navigator>
 
 
